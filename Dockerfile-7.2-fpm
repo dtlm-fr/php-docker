@@ -1,5 +1,5 @@
-FROM jtreminio/php-cli:7.2
-LABEL maintainer="Juan Treminio <jtreminio@gmail.com>"
+FROM dtlmfr/php-cli:7.2
+LABEL maintainer="Cyril Glapa <kyriog@gmail.com>"
 
 # Most common PHP modules, and Composer
 # First group of modules are enabled by default

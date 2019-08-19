@@ -1,5 +1,5 @@
-FROM jtreminio/php-fpm:7.3
-LABEL maintainer="Juan Treminio <jtreminio@gmail.com>"
+FROM dtlmfr/php-fpm:7.3
+LABEL maintainer="Cyril Glapa <kyriog@gmail.com>"
 
 RUN printf "deb [arch=amd64] http://ppa.launchpad.net/ondrej/apache2/ubuntu bionic main\n" \
 >/etc/apt/sources.list.d/ondrej-apache2.list &&\

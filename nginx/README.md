@@ -1,12 +1,12 @@
 #### Supported tags and respective `Dockerfile` links
 
-* `jtreminio/php-nginx:7.3` ([Dockerfile](https://github.com/jtreminio/php-docker/blob/master/nginx/Dockerfile-nginx-7.3))
-* `jtreminio/php-nginx:7.2` ([Dockerfile](https://github.com/jtreminio/php-docker/blob/master/nginx/Dockerfile-nginx-7.2))
-* `jtreminio/php-nginx:7.1` ([Dockerfile](https://github.com/jtreminio/php-docker/blob/master/nginx/Dockerfile-nginx-7.1))
-* `jtreminio/php-nginx:7.0` ([Dockerfile](https://github.com/jtreminio/php-docker/blob/master/nginx/Dockerfile-nginx-7.0))
-* `jtreminio/php-nginx:5.6` ([Dockerfile](https://github.com/jtreminio/php-docker/blob/master/nginx/Dockerfile-nginx-5.6))
+* `dtlmfr/php-nginx:7.3` ([Dockerfile](https://github.com/dtlmfr/php-docker/blob/master/nginx/Dockerfile-nginx-7.3))
+* `dtlmfr/php-nginx:7.2` ([Dockerfile](https://github.com/dtlmfr/php-docker/blob/master/nginx/Dockerfile-nginx-7.2))
+* `dtlmfr/php-nginx:7.1` ([Dockerfile](https://github.com/dtlmfr/php-docker/blob/master/nginx/Dockerfile-nginx-7.1))
+* `dtlmfr/php-nginx:7.0` ([Dockerfile](https://github.com/dtlmfr/php-docker/blob/master/nginx/Dockerfile-nginx-7.0))
+* `dtlmfr/php-nginx:5.6` ([Dockerfile](https://github.com/dtlmfr/php-docker/blob/master/nginx/Dockerfile-nginx-5.6))
 
-#### [This README best viewed on Github for formatting](https://github.com/jtreminio/php-docker/blob/master/nginx/README.md)
+#### [This README best viewed on Github for formatting](https://github.com/dtlmfr/php-docker/blob/master/nginx/README.md)
 
 ## How to use this image
 
@@ -14,13 +14,13 @@
 
 These PHP-FPM + Nginx images come several vhost configs baked in.
 
-[You can see the full list by going here](https://github.com/jtreminio/php-docker/tree/master/nginx/files/vhost).
+[You can see the full list by going here](https://github.com/dtlmfr/php-docker/tree/master/nginx/files/vhost).
 
 You can choose what vhost to use by passing the `VHOST` environment variable:
 
     docker container run --rm -it \
         -e VHOST=html \
-        jtreminio/php-nginx:7.3
+        dtlmfr/php-nginx:7.3
     
     ** Running /etc/my_init.d/00_regen_ssh_host_keys.sh...
     *** Running /etc/my_init.d/10_syslog-ng.init...
@@ -48,7 +48,7 @@ You can choose what vhost to use by passing the `VHOST` environment variable:
 Visit the Github link above to explore the details of each. If `VHOST` is not defined the image defaults to `fpm`:
 
     docker container run --rm -it \
-        jtreminio/php-nginx:7.3
+        dtlmfr/php-nginx:7.3
     
     ** Running /etc/my_init.d/00_regen_ssh_host_keys.sh...
     *** Running /etc/my_init.d/10_syslog-ng.init...
@@ -158,7 +158,7 @@ Then create a `docker-compose.yml` that would look like this:
           name: traefik_webgateway
     services:
       web:
-        image: jtreminio/php-nginx:7.2
+        image: dtlmfr/php-nginx:7.2
         labels:
           - traefik.backend=php-nginx
           - traefik.docker.network=traefik_webgateway
@@ -178,7 +178,7 @@ You can pass PHP INI settings like so:
           name: traefik_webgateway
     services:
       web:
-        image: jtreminio/php-nginx:7.2
+        image: dtlmfr/php-nginx:7.2
         labels:
           - traefik.backend=php-nginx
           - traefik.docker.network=traefik_webgateway
@@ -201,7 +201,7 @@ If you want to enable Xdebug support you must also pass `PHPFPM_XDEBUG`:
           name: traefik_webgateway
     services:
       web:
-        image: jtreminio/php-nginx:7.2
+        image: dtlmfr/php-nginx:7.2
         labels:
           - traefik.backend=php-nginx
           - traefik.docker.network=traefik_webgateway
@@ -225,7 +225,7 @@ You can easily switch vhost configs by using `VHOST`:
           name: traefik_webgateway
     services:
       web:
-        image: jtreminio/php-nginx:7.2
+        image: dtlmfr/php-nginx:7.2
         labels:
           - traefik.backend=php-nginx
           - traefik.docker.network=traefik_webgateway
@@ -250,7 +250,7 @@ Or, you can easily use a custom vhost config:
           name: traefik_webgateway
     services:
       web:
-        image: jtreminio/php-nginx:7.2
+        image: dtlmfr/php-nginx:7.2
         labels:
           - traefik.backend=php-nginx
           - traefik.docker.network=traefik_webgateway
@@ -272,6 +272,6 @@ The resulting container would then be available at http://php-nginx.localhost if
 
 ## About these images
 
-These images are built from [jtreminio/php](https://hub.docker.com/r/jtreminio/php/)
+These images are built from [dtlmfr/php](https://hub.docker.com/r/dtlmfr/php/)
 
 All PHP INI and env var features from those images apply here.

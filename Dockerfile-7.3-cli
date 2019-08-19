@@ -1,5 +1,5 @@
-FROM jtreminio/phpenv:latest
-LABEL maintainer="Juan Treminio <jtreminio@gmail.com>"
+FROM dtlmfr/phpenv:latest
+LABEL maintainer="Cyril Glapa <kyriog@gmail.com>"
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn

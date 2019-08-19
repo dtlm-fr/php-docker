@@ -2,8 +2,8 @@
 set -o pipefail
 
 PHP_VERSION=${1}
-CLI_IMAGE=${2:-jtreminio/php-cli:${PHP_VERSION}}
-FPM_IMAGE=${3:-jtreminio/php-fpm:${PHP_VERSION}}
+CLI_IMAGE=${2:-dtlmfr/php-cli:${PHP_VERSION}}
+FPM_IMAGE=${3:-dtlmfr/php-fpm:${PHP_VERSION}}
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 FAIL='\033[0;31m[FAIL]\033[0m\n'
 PASS='\033[0;32m[PASS]\033[0m\n'
@@ -18,8 +18,8 @@ When IMAGE is not passed, defaults to jtreminio:{PHP_VERSION}
 Example: test 7.2
     Runs tests against jtreminio:7.2
 
-Example: test 7.2 jtreminio/php:7.2.test
-    Runs tests against jtreminio/php:7.2.test
+Example: test 7.2 dtlmfr/php:7.2.test
+    Runs tests against dtlmfr/php:7.2.test
 EOF
 
     exit 1

@@ -1,14 +1,14 @@
 #### Supported tags and respective `Dockerfile` links
 
-* `jtreminio/php:7.3`, `jtreminio/php:latest` ([Dockerfile](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-7.3))
-* `jtreminio/php:7.2` ([Dockerfile](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-7.2))
-* `jtreminio/php:7.1` ([Dockerfile](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-7.1))
-* `jtreminio/php:7.0` ([Dockerfile](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-7.0))
-* `jtreminio/php:5.6` ([Dockerfile](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-5.6))
+* `dtlmfr/php:7.3`, `dtlmfr/php:latest` ([Dockerfile](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-7.3))
+* `dtlmfr/php:7.2` ([Dockerfile](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-7.2))
+* `dtlmfr/php:7.1` ([Dockerfile](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-7.1))
+* `dtlmfr/php:7.0` ([Dockerfile](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-7.0))
+* `dtlmfr/php:5.6` ([Dockerfile](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-5.6))
 
-[All minor version tags can be found here.](https://hub.docker.com/r/jtreminio/php/tags/)
+[All minor version tags can be found here.](https://hub.docker.com/r/dtlmfr/php/tags/)
 
-#### [This README best viewed on Github for formatting](https://github.com/jtreminio/php-docker/blob/master/README.md)
+#### [This README best viewed on Github for formatting](https://github.com/dtlmfr/php-docker/blob/master/README.md)
 
 ## How to use this image
 
@@ -18,7 +18,7 @@ For PHP projects run through the command line interface (CLI), you can do the fo
 
 #### Create a Dockerfile in your PHP project
 
-    FROM jtreminio/php:7.2
+    FROM dtlmfr/php:7.2
     COPY . /usr/src/myapp
     WORKDIR /usr/src/myapp
     CMD [ "php", "./your-script.php" ]
@@ -36,7 +36,7 @@ For many simple, single file projects, you may find it inconvenient  to write a 
         --name my-running-script \
         -v "$PWD":/usr/src/myapp \
         -w /usr/src/myapp \
-        jtreminio/php:7.2 php your-script.php
+        dtlmfr/php:7.2 php your-script.php
 
 Note that all variants of the PHP image contain the PHP CLI.
 
@@ -44,15 +44,15 @@ Note that all variants of the PHP image contain the PHP CLI.
 
 I have created full-featured Nginx/Apache versions of these images.
 
-[Click here for `jtreminio/php-nginx`](https://hub.docker.com/r/jtreminio/php-nginx).
+[Click here for `dtlmfr/php-nginx`](https://hub.docker.com/r/dtlmfr/php-nginx).
 
-[Click here for `jtreminio/php-apache`](https://hub.docker.com/r/jtreminio/php-apache).
+[Click here for `dtlmfr/php-apache`](https://hub.docker.com/r/dtlmfr/php-apache).
 
 ## About these images
 
 These images are built from [Ondřej Surý's PPA](https://launchpad.net/~ondrej/+archive/ubuntu/php)
 
-They come with the most common PHP modules baked in. For a full list, please see the [official Github repo](https://github.com/jtreminio/php-docker).
+They come with the most common PHP modules baked in. For a full list, please see the [official Github repo](https://github.com/dtlmfr/php-docker).
 
 `Composer` is installed at `/usr/local/bin/composer`
 
@@ -74,7 +74,7 @@ PHP-FPM includes fix for logging to stdout and stderr created by https://github.
 PHP-FPM listens on port `9000` and is run automatically by runit:
 
     docker container run -it --rm \
-        jtreminio/php:7.2
+        dtlmfr/php:7.2
     
     *** Running /etc/my_init.d/00_regen_ssh_host_keys.sh...
     *** Running /etc/my_init.d/10_syslog-ng.init...
@@ -91,12 +91,12 @@ PHP-FPM listens on port `9000` and is run automatically by runit:
 
 You can set a large number of PHP INI settings using environment variables.
 
-[A full list of supported directives can be found here](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-env).
+[A full list of supported directives can be found here](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-env).
 
 [You can read about this in more detail here](https://jtreminio.com/blog/docker-php/php-fpm-configuration-via-environment-variables/).
 
     docker container run -it --rm \
-        jtreminio/php:7.2 php -i | grep display_errors
+        dtlmfr/php:7.2 php -i | grep display_errors
     
     100:display_errors => Off => Off
 
@@ -104,7 +104,7 @@ vs
 
     docker container run -it --rm \
         -e PHP__display_errors=1 \
-        jtreminio/php:7.2 php -i | grep display_errors
+        dtlmfr/php:7.2 php -i | grep display_errors
     
     100:display_errors => STDOUT => STDOUT
 
@@ -112,25 +112,25 @@ vs
 
 Many modules are installed and enabled by default:
 
-* [Enabled Modules for 7.3](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-7.3#L48)
-* [Enabled Modules for 7.2](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-7.2#L47)
-* [Enabled Modules for 7.1](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-7.1#L47)
-* [Enabled Modules for 7.0](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-7.0#L47)
-* [Enabled Modules for 5.6](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-5.6#L47)
+* [Enabled Modules for 7.3](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-7.3#L48)
+* [Enabled Modules for 7.2](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-7.2#L47)
+* [Enabled Modules for 7.1](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-7.1#L47)
+* [Enabled Modules for 7.0](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-7.0#L47)
+* [Enabled Modules for 5.6](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-5.6#L47)
 
 Many modules are installed by _not_ enabled by default:
 
-* [Installed, not Enabled Modules for 7.3](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-7.3#L60)
-* [Installed, not Enabled Modules for 7.2](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-7.2#L59)
-* [Installed, not Enabled Modules for 7.1](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-7.1#L59)
-* [Installed, not Enabled Modules for 7.0](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-7.0#L59)
-* [Installed, not Enabled Modules for 5.6](https://github.com/jtreminio/php-docker/blob/master/Dockerfile-5.6#L59)
+* [Installed, not Enabled Modules for 7.3](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-7.3#L60)
+* [Installed, not Enabled Modules for 7.2](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-7.2#L59)
+* [Installed, not Enabled Modules for 7.1](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-7.1#L59)
+* [Installed, not Enabled Modules for 7.0](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-7.0#L59)
+* [Installed, not Enabled Modules for 5.6](https://github.com/dtlmfr/php-docker/blob/master/Dockerfile-5.6#L59)
 
 You can enable these modules by using the `PHP_INI_SCAN_DIR` env var. A special shortcut has been created to more easily add modules:
 
     docker container run -it --rm \
         -e PHP_INI_SCAN_DIR=:/p/amqp:/p/mailparse \
-        jtreminio/php:7.3 php -v
+        dtlmfr/php:7.3 php -v
 
 The `/p` directory contains symlinks to other directories:
 
@@ -165,7 +165,7 @@ You can read about this in greater detail by going to [PHP Modules Toggled via E
 
 Xdebug is _installed_ but _disabled_ by default:
 
-    docker container run -it --rm jtreminio/php:7.2 php -v
+    docker container run -it --rm dtlmfr/php:7.2 php -v
     
     PHP 7.2.7-1+ubuntu18.04.1+deb.sury.org+1 (cli) (built: Jun 22 2018 08:45:49) ( NTS )
     Copyright (c) 1997-2018 The PHP Group
@@ -176,7 +176,7 @@ To enable (ONLY on non-public servers!) you must use the `PHP_INI_SCAN_DIR` env 
 
     docker container run -it --rm \
         -e PHP_INI_SCAN_DIR=:/p/xdebug \
-        jtreminio/php:7.2 php -v
+        dtlmfr/php:7.2 php -v
     
     PHP 7.2.7-1+ubuntu18.04.1+deb.sury.org+1 (cli) (built: Jun 22 2018 08:45:49) ( NTS )
     Copyright (c) 1997-2018 The PHP Group
@@ -192,7 +192,7 @@ You must either pass your host IP directly, or use a gateway. I have found `172.
     docker container run -it --rm \
         -e PHP_INI_SCAN_DIR=:/p/xdebug \
         -e PHP__xdebug__remote_host=172.17.0.1 \
-        jtreminio/php:7.2 php -i | grep xdebug.remote_host
+        dtlmfr/php:7.2 php -i | grep xdebug.remote_host
     
     860:xdebug.remote_host => 127.0.0.1 => 127.0.0.1
     
@@ -202,7 +202,7 @@ To use it, call it instead of `php` directly:
 
     docker container run -it --rm \
         -e PHP_INI_SCAN_DIR=:/p/xdebug \
-        jtreminio/php:7.2 xdebug -v
+        dtlmfr/php:7.2 xdebug -v
     
     PHP 7.2.8-1+ubuntu18.04.1+deb.sury.org+1 (cli) (built: Jul 25 2018 10:52:19) ( NTS )
     Copyright (c) 1997-2018 The PHP Group

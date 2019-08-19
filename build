@@ -1,107 +1,107 @@
 docker image build \
-    -t jtreminio/phpenv:latest \
+    -t dtlmfr/phpenv:latest \
     -f Dockerfile-env \
     .
 
 PHP73="7.3.7"
 docker image build \
-  -t jtreminio/php-cli:7.3 \
-  -t jtreminio/php-cli:${PHP73} \
-  -t jtreminio/php-cli:latest \
+  -t dtlmfr/php-cli:7.3 \
+  -t dtlmfr/php-cli:${PHP73} \
+  -t dtlmfr/php-cli:latest \
   -f Dockerfile-7.3-cli \
   .
 
 docker image build \
-  -t jtreminio/php-fpm:7.3 \
-  -t jtreminio/php-fpm:${PHP73} \
-  -t jtreminio/php-fpm:latest \
+  -t dtlmfr/php-fpm:7.3 \
+  -t dtlmfr/php-fpm:${PHP73} \
+  -t dtlmfr/php-fpm:latest \
   -f Dockerfile-7.3-fpm \
   .
 
 PHP72="7.2.20"
 docker image build \
   --build-arg PHP_VER_DOT=${PHP72} \
-  -t jtreminio/php-cli:7.2 \
-  -t jtreminio/php-cli:${PHP72} \
+  -t dtlmfr/php-cli:7.2 \
+  -t dtlmfr/php-cli:${PHP72} \
   -f Dockerfile-7.2-cli \
   .
 
 docker image build \
-  -t jtreminio/php-fpm:7.2 \
-  -t jtreminio/php-fpm:${PHP72} \
+  -t dtlmfr/php-fpm:7.2 \
+  -t dtlmfr/php-fpm:${PHP72} \
   -f Dockerfile-7.2-fpm \
   .
 
 PHP71="7.1.30"
 docker image build \
   --build-arg PHP_VER_DOT=${PHP71} \
-  -t jtreminio/php-cli:7.1 \
-  -t jtreminio/php-cli:${PHP71} \
+  -t dtlmfr/php-cli:7.1 \
+  -t dtlmfr/php-cli:${PHP71} \
   -f Dockerfile-7.1-cli \
   .
 
 docker image build \
-  -t jtreminio/php-fpm:7.1 \
-  -t jtreminio/php-fpm:${PHP71} \
+  -t dtlmfr/php-fpm:7.1 \
+  -t dtlmfr/php-fpm:${PHP71} \
   -f Dockerfile-7.1-fpm \
   .
 
 PHP70="7.0.33"
 docker image build \
   --build-arg PHP_VER_DOT=${PHP70} \
-  -t jtreminio/php-cli:7.0 \
-  -t jtreminio/php-cli:${PHP70} \
+  -t dtlmfr/php-cli:7.0 \
+  -t dtlmfr/php-cli:${PHP70} \
   -f Dockerfile-7.0-cli \
   .
 
 docker image build \
-  -t jtreminio/php-fpm:7.0 \
-  -t jtreminio/php-fpm:${PHP70} \
+  -t dtlmfr/php-fpm:7.0 \
+  -t dtlmfr/php-fpm:${PHP70} \
   -f Dockerfile-7.0-fpm \
   .
 
 PHP56="5.6.40"
 docker image build \
   --build-arg PHP_VER_DOT=${PHP56} \
-  -t jtreminio/php-cli:5.6 \
-  -t jtreminio/php-cli:${PHP56} \
+  -t dtlmfr/php-cli:5.6 \
+  -t dtlmfr/php-cli:${PHP56} \
   -f Dockerfile-5.6-cli \
   .
 
 docker image build \
-  -t jtreminio/php-fpm:5.6 \
-  -t jtreminio/php-fpm:${PHP56} \
+  -t dtlmfr/php-fpm:5.6 \
+  -t dtlmfr/php-fpm:${PHP56} \
   -f Dockerfile-5.6-fpm \
   .
 
 cat << EOF
 Push to Docker Hub with:
 
-docker image push jtreminio/phpenv:latest
+docker image push dtlmfr/phpenv:latest
 
-docker image push jtreminio/php-cli:7.3
-docker image push jtreminio/php-cli:${PHP73}
-docker image push jtreminio/php-cli:latest
-docker image push jtreminio/php-fpm:7.3
-docker image push jtreminio/php-fpm:${PHP73}
-docker image push jtreminio/php-fpm:latest
+docker image push dtlmfr/php-cli:7.3
+docker image push dtlmfr/php-cli:${PHP73}
+docker image push dtlmfr/php-cli:latest
+docker image push dtlmfr/php-fpm:7.3
+docker image push dtlmfr/php-fpm:${PHP73}
+docker image push dtlmfr/php-fpm:latest
 
-docker image push jtreminio/php-cli:7.2
-docker image push jtreminio/php-cli:${PHP72}
-docker image push jtreminio/php-fpm:7.2
-docker image push jtreminio/php-fpm:${PHP72}
+docker image push dtlmfr/php-cli:7.2
+docker image push dtlmfr/php-cli:${PHP72}
+docker image push dtlmfr/php-fpm:7.2
+docker image push dtlmfr/php-fpm:${PHP72}
 
-docker image push jtreminio/php-cli:7.1
-docker image push jtreminio/php-cli:${PHP71}
-docker image push jtreminio/php-fpm:7.1
-docker image push jtreminio/php-fpm:${PHP71}
+docker image push dtlmfr/php-cli:7.1
+docker image push dtlmfr/php-cli:${PHP71}
+docker image push dtlmfr/php-fpm:7.1
+docker image push dtlmfr/php-fpm:${PHP71}
 
-docker image push jtreminio/php-cli:7.0
-docker image push jtreminio/php-cli:${PHP70}
-docker image push jtreminio/php-fpm:7.0
-docker image push jtreminio/php-fpm:${PHP70}
+docker image push dtlmfr/php-cli:7.0
+docker image push dtlmfr/php-cli:${PHP70}
+docker image push dtlmfr/php-fpm:7.0
+docker image push dtlmfr/php-fpm:${PHP70}
 
-docker image push jtreminio/php-cli:5.6
-docker image push jtreminio/php-cli:${PHP56}
-docker image push jtreminio/php-fpm:5.6
-docker image push jtreminio/php-fpm:${PHP56}
+docker image push dtlmfr/php-cli:5.6
+docker image push dtlmfr/php-cli:${PHP56}
+docker image push dtlmfr/php-fpm:5.6
+docker image push dtlmfr/php-fpm:${PHP56}
